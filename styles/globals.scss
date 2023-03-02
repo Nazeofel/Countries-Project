@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import "resets.scss";
+
+body[data-theme="dark"] {
+  --element: hsl(209, 23%, 22%);
+  --background: hsl(207, 26%, 17%);
+  --text: hsl(0, 0%, 100%);
+  --input: hsl(209, 23%, 22%);
+}
+
+body[data-theme="light"] {
+  --element: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 98%);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background);
+}
+
+div#__next {
+  height: 100%;
+}
+
+.app-container {
+  height: 100%;
+}
+
+.navigation {
+  display: flex;
+  padding-block: 40px;
+  justify-content: space-around;
+  background-color: var(--element);
+  color: var(--text);
+  box-shadow: 0px 0px 10px 1px black;
+  > .nav-items {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    > .website-title {
+      font-size: 1.2rem;
+    }
+    > .theme-button {
+      border: none;
+      background: none;
+      color: var(--text);
+    }
+  }
+}
+form {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  margin: auto;
+  padding-block: 40px;
+  > input,
+  ::placeholder {
+    color: var(--text);
+    border-radius: 5px;
+    padding: 15px;
+    background-color: var(--element);
+    margin-bottom: 40px;
+    border: none;
+  }
+
+  > select {
+    border-radius: 5px;
+    padding: 15px;
+    background-color: var(--element);
+    border: none;
+    width: fit-content;
+    color: var(--text);
+  }
+}
+
+.main-container {
+  display: grid;
+  place-items: center;
+  gap: 20px;
+  margin-inline: auto;
+}
+
+.country-container {
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 5px;
+  column-gap: 50px;
+  row-gap: 50px;
+  width: 90%;
+  justify-content: center;
+}
+
+.card-infos {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--element);
+  color: var(--text);
+  border-radius: 5px 5px 5px 5px;
+  margin-inline: auto;
+  width: 224px;
+}
+
+.text-container {
+  width: 80%;
+  margin: auto;
+  > .country-name {
+    padding-block: 20px;
+    font-weight: 800;
+  }
+  > :nth-child(3) {
+    padding-block: 5px;
+  }
+  > :nth-child(4) {
+    padding-bottom: 20px;
+  }
+}
+
+.base-country-infos {
+  font-weight: 600;
+  > span {
+    font-weight: initial;
+    padding-left: 10px;
+  }
+}
+
+.select {
+  background: var(--element);
+  max-width: 200px;
+  color: var(--text);
+  border-radius: 5px;
+  position: relative;
+  user-select: none;
+
+  height: fit-content;
+  .selected {
+    padding: 10px;
+    cursor: pointer;
+  }
+  .options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    background: var(--element);
+    z-index: 1;
+    color: var(--text);
+    width: 100%;
+    left: 0;
+    border-radius: 5px;
+    .option {
+      cursor: pointer;
+      padding: 5px;
+    }
+    &.active {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  form {
+    flex-direction: row;
+    justify-content: space-between;
+    > input {
+      width: 35%;
+    }
+  }
+
+  .country-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  }
+
+  a {
+    max-width: 320px;
+  }
+}
