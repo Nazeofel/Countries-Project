@@ -8,3 +8,4 @@ From Rest API and re-displaying the data in a user friendly interface.
 - JS Framework : **NextJS**
 - API : **Rest Countries**
 - Language : **Typescript**
+- image placeholder: **BlurHash**

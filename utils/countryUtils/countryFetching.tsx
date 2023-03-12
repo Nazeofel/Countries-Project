@@ -32,7 +32,6 @@ export const fetchByName = (
       country.officialName.includes(parsedString)
     );
     if (filter.length === 0) {
-      console.log("oui");
       setError(true);
     }
     setCountry(filter);
