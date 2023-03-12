@@ -37,10 +37,20 @@ export const hashCountries = async (
 };
 
 export const initialFetch = async (): Promise<CountryStats[]> => {
-  const res = await fetch(`https://restcountries.com/v3.1/all`);
-  const countries: ApiObject[] = await res.json();
-  const hashedCountries: ApiObject[] = await hashCountries(countries);
-  const parsedCountries: CountryStats[] = await jsonParser(hashedCountries);
+  let parsedCountries: CountryStats[] = [];
+  try {
+    const res = await fetch(`https://restcountries.com/v3.1/all`);
+    if (!res.ok) {
+      throw new Error(res.status.toString());
+    }
+    const countries: ApiObject[] = await res.json();
+    const hashedCountries: ApiObject[] = await hashCountries(countries);
+    parsedCountries = await jsonParser(hashedCountries);
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(e.message, "an error happened");
+    }
+  }
 
   return parsedCountries;
 };
