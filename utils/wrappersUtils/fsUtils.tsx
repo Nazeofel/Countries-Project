@@ -2,6 +2,7 @@ const fs = require("fs");
 
 export const fsWrite = async (obj: any, filePath: string) => {
   if (JSON.stringify(obj) === "{}") {
+    return;
   } else {
     fs.writeFile(process.cwd() + filePath, JSON.stringify(obj), (err: any) => {
       if (err) {
