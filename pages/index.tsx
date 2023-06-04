@@ -6,10 +6,7 @@ import { useHydrateAtoms } from "jotai/utils";
 import React, { useState } from "react";
 
 export async function getStaticProps() {
-  const res = await fetch(`./api/countries`);
-  const json = await res.json();
-  const parsedCountries = json["data"];
-
+  const parsedCountries = await initialFetch();
   return {
     props: {
       parsedCountries,
