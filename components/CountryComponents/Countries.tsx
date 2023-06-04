@@ -18,7 +18,10 @@ export default function Countries() {
         countries.map((country: CountryStats, b: number) => {
           return (
             <div key={b}>
-              <Link href={"countries/" + country.cca2}>
+              <Link
+                href={"countries/" + country.cca2}
+                style={{ height: "100%", display: "block" }}
+              >
                 <CountryCard {...country} />
               </Link>
             </div>
