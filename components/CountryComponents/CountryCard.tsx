@@ -7,7 +7,7 @@ export default function CountryCard(props: any) {
   const hash = (
     <Blurhash hash={props.hashImage} width={224} height={170} punch={1} />
   );
-  function onLoad() {
+  async function onLoad() {
     setLoading(true);
   }
 
@@ -26,7 +26,7 @@ export default function CountryCard(props: any) {
               position: loading ? "relative" : "fixed",
               opacity: loading ? 1 : 0,
             }}
-            onLoadingComplete={() => onLoad()}
+            onLoadingComplete={async () => await onLoad()}
           />
         </div>
         {!loading && hash}
