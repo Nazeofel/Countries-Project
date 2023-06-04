@@ -14,15 +14,12 @@ export default function CountryCard(props: any) {
   async function onLoad() {
     setLoading(true);
   }
-  function loadImage({ width, src }: Iimage) {
-    return `${src}?w=${width}&q=${75}`;
-  }
   return (
     <>
       <div className="card-infos">
         <div className="country-flag">
           <Image
-            loader={loadImage}
+            loader={() => props.flags}
             src={props.flags}
             alt="country"
             height={170}
