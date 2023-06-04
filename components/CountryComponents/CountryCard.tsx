@@ -1,6 +1,10 @@
 import { Blurhash } from "react-blurhash";
 import { useState } from "react";
 import Image from "next/image";
+interface Iimage {
+  width: number;
+  src: string;
+}
 
 export default function CountryCard(props: any) {
   const [loading, setLoading] = useState(false);
@@ -10,12 +14,15 @@ export default function CountryCard(props: any) {
   async function onLoad() {
     setLoading(true);
   }
-
+  function loadImage({ width, src }: Iimage) {
+    return `https://flagcdn.com/${src}?w=${width}&q=${75}`;
+  }
   return (
     <>
       <div className="card-infos">
         <div className="country-flag">
           <Image
+            loader={loadImage}
             src={props.flags}
             alt="country"
             height={170}
