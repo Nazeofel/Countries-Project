@@ -15,7 +15,7 @@ export default function CountryCard(props: any) {
     setLoading(true);
   }
   function loadImage({ width, src }: Iimage) {
-    return `https://flagcdn.com/${src}?w=${width}&q=${75}`;
+    return `${src}?w=${width}&q=${75}`;
   }
   return (
     <>
