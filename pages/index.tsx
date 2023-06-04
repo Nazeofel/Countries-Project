@@ -6,7 +6,7 @@ import { useHydrateAtoms } from "jotai/utils";
 import React, { useState } from "react";
 
 export async function getStaticProps() {
-  const res = await fetch("/api/countries");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/countries`);
   const json = await res.json();
   const parsedCountries = json["data"];
 
