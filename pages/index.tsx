@@ -4,6 +4,7 @@ import { cachedCountries, countryObject } from "../utils/states";
 import { CountryStats } from "../utils/types";
 import { useHydrateAtoms } from "jotai/utils";
 import React, { useState } from "react";
+import { initialFetch } from "../utils/countryUtils/ssUtils";
 
 export async function getStaticProps() {
   const parsedCountries = await initialFetch();
