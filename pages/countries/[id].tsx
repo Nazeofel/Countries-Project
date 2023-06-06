@@ -97,28 +97,39 @@ export default function DisplayCountry(props: {
               <div className="row-infos">
                 <span className="name-info">Currencies:</span>
                 <span className="data">
-                  {country.currency !== undefined && country.currency !== null
-                    ? Object.values(country.currency)[0].name
-                    : undefined}
+                  {country.currency !== undefined &&
+                  country.currency !== null ? (
+                    Object.values(country.currency)[0].name
+                  ) : (
+                    <p>No official currency</p>
+                  )}
                 </span>
               </div>
 
               <div className="row-infos languages">
                 <span className="name-info">Languages:</span>
                 <span className="data">
-                  {country.languages !== undefined && country.languages !== null
-                    ? Object.values(country.languages) + " "
-                    : undefined}
+                  {country.languages !== undefined &&
+                  country.languages !== null ? (
+                    Object.values(country.languages) + " "
+                  ) : (
+                    <p>No official Language</p>
+                  )}
                 </span>
               </div>
             </div>
             <div className="country-buttons">
               <h2>Border Countries:</h2>
               <div className="row-infos">
-                {country.borderCountries.map((country: any, b: number) => {
-                  console.log(country);
-                  return <Button text={country}></Button>;
-                })}
+                {country.borderCountries !== undefined &&
+                country.borderCountries !== null ? (
+                  country.borderCountries.map((country: any, b: number) => {
+                    console.log(country);
+                    return <Button text={country}></Button>;
+                  })
+                ) : (
+                  <p>No border Countries</p>
+                )}
               </div>
             </div>
           </section>
