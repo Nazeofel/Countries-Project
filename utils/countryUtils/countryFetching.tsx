@@ -38,3 +38,7 @@ export const fetchByName = (
     setCountry(filter);
   }
 };
+
+export const imageLoader = ({ width, src, quality }: any) => {
+  return `https://flagcdn.com/w320/${src}?w=${width}&q=${quality || 75}`;
+};

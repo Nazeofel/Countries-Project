@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Blurhash } from "react-blurhash";
 import Button from "../../components/CountryComponents/Button";
+import { imageLoader } from "../../utils/countryUtils/countryFetching";
 
 export async function getStaticPaths() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -52,8 +53,8 @@ export default function DisplayCountry(props: {
           <Button text="back" />
           {!loading && hash}
           <Image
-            loader={() => country.flags}
-            src={country.flags}
+            loader={imageLoader}
+            src={country.cca2.toLowerCase() + ".png"}
             alt="country"
             height={224}
             width={224}

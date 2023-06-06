@@ -2,6 +2,7 @@ import { Blurhash } from "react-blurhash";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import useObserver from "../../utils/customHooks/useObserver";
+import { imageLoader } from "../../utils/countryUtils/countryFetching";
 interface Iimage {
   width: number;
   src: string;
@@ -13,9 +14,7 @@ export default function CountryCard(props: any) {
   );
   const element = useRef(null);
   const observer = useObserver(element);
-  const imageLoader = ({ width, src, quality }: any) => {
-    return `https://flagcdn.com/w320/${src}?w=${width}&q=${quality || 75}`;
-  };
+
   return (
     <div className="card-infos">
       <div className="country-flag" ref={element}>
