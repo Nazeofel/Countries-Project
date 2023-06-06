@@ -1,6 +1,11 @@
 // One liner types
 export type status = "done" | "fetching" | "invalid" | "";
 
+interface ICurrency {
+  name: string;
+  symbol: string;
+}
+
 // Types object
 export type CountryStats = {
   officialName: string;
@@ -10,7 +15,7 @@ export type CountryStats = {
   region: string;
   subRegion: string;
   domain: string[];
-  currency: string[];
+  currency: Record<string, any>;
   languages: string[];
   borderCountries: string[];
   flags: string;
@@ -46,7 +51,7 @@ export type ApiObject = {
   borders: string[];
   numericCode: string;
   flags: string;
-  currencies: string[];
+  currencies: Record<string, any>;
   languages: string[];
   translations: string[];
   flag: string;

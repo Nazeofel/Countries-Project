@@ -28,9 +28,25 @@ div#__next {
   height: 100%;
 }
 
+.fetch-failed {
+  color: var(--text);
+}
+
+.button {
+  border: none;
+  color: var(--text);
+  padding-block: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: 400;
+  background-color: var(--element);
+  box-shadow: var(--background) 0px 1px 5px 1px;
+  border-radius: 2px;
+}
+
 .navigation {
   display: flex;
-  padding-block: 40px;
+  padding-block: 30px;
   justify-content: space-around;
   background-color: var(--element);
   color: var(--text);
@@ -161,6 +177,68 @@ form {
   }
 }
 
+.detailed-main {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 375px;
+  > :nth-child(1) {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 33%;
+  }
+  > img {
+    margin-bottom: 40px;
+  }
+
+  > .detailed-informations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .name-info {
+      color: var(--text);
+      font-weight: 600;
+      margin-right: 5px;
+    }
+
+    > h2 {
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    > .upper-infos,
+    .lower-infos {
+      display: grid;
+      gap: 10px;
+      > .capital {
+        margin-bottom: 40px;
+      }
+    }
+    .data {
+      font-weight: lighter;
+      color: var(--text);
+    }
+    .languages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    > .country-buttons {
+      margin-top: 20px;
+      margin-bottom: 50px;
+      > h2 {
+        font-size: 16px;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      > div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1440px) {
   form {
     flex-direction: row;
@@ -177,5 +255,60 @@ form {
 
   a {
     max-width: 320px;
+  }
+
+  .button {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  /* country page */
+
+  .detailed-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: none;
+    > img {
+      width: 90%;
+      height: 80%;
+      align-self: center;
+      justify-self: center;
+      grid-row-start: 2;
+    }
+    > .detailed-informations {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-start: 2;
+      grid-column-start: 2;
+
+      > h2 {
+        color: var(--text);
+        height: fit-content;
+        align-self: end;
+      }
+      > .languages {
+        all: unset;
+      }
+      > .country-buttons {
+        display: flex;
+        grid-column: span 2;
+        gap: 5px;
+        align-items: baseline;
+        > h2 {
+          height: min-content;
+        }
+      }
+      > .row-infos {
+        display: flex;
+        gap: 20px;
+        height: fit-content;
+      }
+      .upper-infos {
+        grid-column-start: 1;
+      }
+      .lower-infos {
+        height: fit-content;
+      }
+    }
   }
 }

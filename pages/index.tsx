@@ -16,6 +16,9 @@ export async function getStaticProps() {
 }
 
 function HomePage(props: { parsedCountries: CountryStats[] }) {
+  if (!Array.isArray(props.parsedCountries)) {
+    return <h1 className="fetch-failed">Failed to fetch !</h1>;
+  }
   useHydrateAtoms([[countryObject, props.parsedCountries]] as const);
   useHydrateAtoms([[cachedCountries, props.parsedCountries]] as const);
   return (

@@ -36,7 +36,7 @@ export const hashCountries = async (
   return countryPromise;
 };
 
-export const initialFetch = async (): Promise<CountryStats[]> => {
+export const initialFetch = async (): Promise<CountryStats[] | string> => {
   let parsedCountries: CountryStats[] = [];
   try {
     const res = await fetch(`https://restcountries.com/v3.1/all`);
@@ -48,7 +48,7 @@ export const initialFetch = async (): Promise<CountryStats[]> => {
     parsedCountries = await jsonParser(hashedCountries);
   } catch (e) {
     if (e instanceof Error) {
-      console.log(e.message, "an error happened");
+      return e.message;
     }
   }
 

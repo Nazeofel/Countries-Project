@@ -11,7 +11,6 @@ export const jsonParser = async (
         .map((a: any, _b: number) => a.common)
         .toString();
       const flagsPng = [a.flags].map((a: any, _b: number) => a.png).toString();
-
       const obj: CountryStats = {
         officialName: officialNameCommon ?? null,
         cca2: a.cca2 ?? null,

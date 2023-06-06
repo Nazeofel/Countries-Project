@@ -26,6 +26,7 @@ export const fetchByName = (
 ) => {
   if (name === "") {
     setCountry(countries);
+    console.log("oui");
   } else {
     const parsedString = validString(name);
     const filter = countries.filter((country: CountryStats) =>
